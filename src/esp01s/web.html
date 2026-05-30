@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Agrícola</title>
+</head>
+
+<body>
+    <form action="/enviar" method="GET">
+        Fileiras [qtd]:<br>
+        <input type=number name=i min=1 required oninput="x_x.required=this.value>1"><br>
+        Comprimento das fileiras [m]:<br>
+        <input type=number name=y min=0.1 step=0.01 required><br>
+        Espaçamento entre fileiras [cm]:<br>
+        <input type=number name=x_x min=1><br>
+        Largura máxima do plantio [m]:<br>
+        <input type=number name=x min=0 step=0.01><br>
+        Espaçamento entre sementes [cm]:<br>
+        <input type=number name=n min=1 required><br>
+        Direção:<br>
+        <select name=direcao>
+            <option value=dir>Direita</option>
+            <option value=esq>Esquerda</option>
+        </select>
+        <br><br>
+        <button value=submit>Iniciar</button>
+    </form>
+</body>
+
+</html>
