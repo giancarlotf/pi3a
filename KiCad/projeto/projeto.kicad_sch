@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "Robô Agrícola - PI3A")
-		(date "2026-05-03")
+		(date "2026-05-30")
 	)
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x16"
@@ -1779,6 +1779,162 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "LM2596S-12_1"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U4"
+				(at 0 10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LM2596S"
+				(at 0 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
+				(at 1.27 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "12V 3A Step-Down Voltage Regulator, TO-263"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Step-Down Voltage Regulator 12V 3A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "TO?263*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LM2596S-12_1_0_1"
+				(rectangle
+					(start -10.16 5.08)
+					(end 10.16 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "LM2596S-12_1_1_1"
+				(pin power_in line
+					(at -12.7 2.54 0)
+					(length 2.54)
+					(name "+VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -12.7 -2.54 0)
+					(length 2.54)
+					(name "-VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 12.7 2.54 180)
+					(length 2.54)
+					(name "+VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 12.7 -2.54 180)
+					(length 2.54)
+					(name "-VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "MCU_Module:Arduino_UNO_R3"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -3086,358 +3242,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Regulator_Switching:LM2596S-3.3"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at -10.16 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "LM2596S-3.3"
-				(at 0 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
-				(at 1.27 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "3.3V 3A Step-Down Voltage Regulator, TO-263"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "Step-Down Voltage Regulator 3.3V 3A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "TO?263*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "LM2596S-3.3_0_1"
-				(rectangle
-					(start -10.16 5.08)
-					(end 10.16 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "LM2596S-3.3_1_1"
-				(pin power_in line
-					(at -12.7 2.54 0)
-					(length 2.54)
-					(name "VIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -12.7 -2.54 0)
-					(length 2.54)
-					(name "~{ON}/OFF"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 12.7 2.54 180)
-					(length 2.54)
-					(name "FB"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 12.7 -2.54 180)
-					(length 2.54)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Regulator_Switching:LM2596S-5"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at -10.16 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "LM2596S-5"
-				(at 0 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
-				(at 1.27 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "5V 3A Step-Down Voltage Regulator, TO-263"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "Step-Down Voltage Regulator 5V 3A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "TO?263*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "LM2596S-5_0_1"
-				(rectangle
-					(start -10.16 5.08)
-					(end 10.16 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "LM2596S-5_1_1"
-				(pin power_in line
-					(at -12.7 2.54 0)
-					(length 2.54)
-					(name "VIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -12.7 -2.54 0)
-					(length 2.54)
-					(name "~{ON}/OFF"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 12.7 2.54 180)
-					(length 2.54)
-					(name "FB"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 12.7 -2.54 180)
-					(length 2.54)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Simulation_SPICE:0"
 			(power)
 			(pin_numbers
@@ -4133,7 +3937,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 181.61) (xy 69.85 184.15)
+			(xy 57.15 176.53) (xy 57.15 179.07)
 		)
 		(stroke
 			(width 0)
@@ -4653,7 +4457,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 156.21) (xy 69.85 158.75)
+			(xy 57.15 151.13) (xy 57.15 153.67)
 		)
 		(stroke
 			(width 0)
@@ -4713,7 +4517,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 181.61) (xy 120.65 184.15)
+			(xy 107.95 176.53) (xy 107.95 179.07)
 		)
 		(stroke
 			(width 0)
@@ -4753,7 +4557,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 156.21) (xy 120.65 158.75)
+			(xy 107.95 151.13) (xy 107.95 153.67)
 		)
 		(stroke
 			(width 0)
@@ -5035,7 +4839,7 @@
 	)
 	(global_label "VBUCK_M2"
 		(shape output)
-		(at 133.35 176.53 0)
+		(at 133.35 171.45 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5045,7 +4849,7 @@
 		)
 		(uuid "5617346a-2e96-4d50-bbe0-b500a1d226cd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 146.1928 176.53 0)
+			(at 146.1928 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5145,7 +4949,7 @@
 	)
 	(global_label "VBUCK_M1"
 		(shape output)
-		(at 133.35 151.13 0)
+		(at 133.35 146.05 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5155,7 +4959,7 @@
 		)
 		(uuid "82593ad2-c83c-4600-9562-7015a9c6acab")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 146.1928 151.13 0)
+			(at 146.1928 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5189,7 +4993,7 @@
 	)
 	(global_label "VBUCK_UNO"
 		(shape output)
-		(at 82.55 176.53 0)
+		(at 82.55 171.45 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5199,7 +5003,7 @@
 		)
 		(uuid "8ad5390c-6dac-4c8d-8351-f447f577f040")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 96.7234 176.53 0)
+			(at 96.7234 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5255,7 +5059,7 @@
 	)
 	(global_label "VBUCK_ESP"
 		(shape output)
-		(at 82.55 151.13 0)
+		(at 82.55 146.05 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5265,7 +5069,7 @@
 		)
 		(uuid "aa7cc7e8-ad41-4dac-a1a4-8c859bcae0cd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 96.3604 151.13 0)
+			(at 96.3604 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5818,7 +5622,7 @@
 	)
 	(symbol
 		(lib_id "Simulation_SPICE:0")
-		(at 120.65 158.75 0)
+		(at 107.95 153.67 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5827,7 +5631,7 @@
 		(fields_autoplaced yes)
 		(uuid "0ba14b30-ab0a-441c-8b29-901fc37d0e48")
 		(property "Reference" "#GND013"
-			(at 120.65 163.83 0)
+			(at 107.95 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5836,7 +5640,7 @@
 			)
 		)
 		(property "Value" "0"
-			(at 120.65 156.21 0)
+			(at 107.95 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5845,7 +5649,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 120.65 158.75 0)
+			(at 107.95 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5854,7 +5658,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Circuit_elements__device"
-			(at 120.65 168.91 0)
+			(at 107.95 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5863,7 +5667,7 @@
 			)
 		)
 		(property "Description" "0V reference potential for simulation"
-			(at 120.65 166.37 0)
+			(at 107.95 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5878,85 +5682,6 @@
 			(project "projeto"
 				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
 					(reference "#GND013")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Regulator_Switching:LM2596S-5")
-		(at 120.65 148.59 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0bae12bd-4e4a-4eb6-bf3f-7d9881321672")
-		(property "Reference" "U6"
-			(at 120.65 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM2596S-5"
-			(at 120.65 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
-			(at 121.92 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
-			(at 120.65 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "5V 3A Step-Down Voltage Regulator, TO-263"
-			(at 120.65 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "43073411-a76a-4079-9057-286f6d5ebd6f")
-		)
-		(pin "4"
-			(uuid "c56d7fb4-6e36-4c3d-be96-65c882cf410f")
-		)
-		(pin "5"
-			(uuid "7fba035c-8fe9-410e-afac-d85a01cec45f")
-		)
-		(pin "3"
-			(uuid "3fe8dd87-6a39-41f6-bd68-78e3d9f58e5f")
-		)
-		(pin "1"
-			(uuid "480406aa-f4a0-42ed-ba9e-75c53e3ba989")
-		)
-		(instances
-			(project "projeto"
-				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
-					(reference "U6")
 					(unit 1)
 				)
 			)
@@ -6278,7 +6003,7 @@
 	)
 	(symbol
 		(lib_id "Simulation_SPICE:0")
-		(at 69.85 158.75 0)
+		(at 57.15 153.67 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6287,7 +6012,7 @@
 		(fields_autoplaced yes)
 		(uuid "23bf1b92-5220-4976-ad8e-15c57b13a1d8")
 		(property "Reference" "#GND014"
-			(at 69.85 163.83 0)
+			(at 57.15 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6296,7 +6021,7 @@
 			)
 		)
 		(property "Value" "0"
-			(at 69.85 156.21 0)
+			(at 57.15 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6305,7 +6030,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 69.85 158.75 0)
+			(at 57.15 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6314,7 +6039,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Circuit_elements__device"
-			(at 69.85 168.91 0)
+			(at 57.15 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6323,7 +6048,7 @@
 			)
 		)
 		(property "Description" "0V reference potential for simulation"
-			(at 69.85 166.37 0)
+			(at 57.15 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6474,6 +6199,160 @@
 			(project "projeto"
 				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
 					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "LM2596S-12_1")
+		(lib_id "Regulator_Switching:LM2596S-12")
+		(at 69.85 173.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "364fb1da-de1c-4efb-9b28-e8c80f1f8307")
+		(property "Reference" "U5"
+			(at 69.85 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM2596S"
+			(at 69.85 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
+			(at 71.12 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
+			(at 69.85 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "12V 3A Step-Down Voltage Regulator, TO-263"
+			(at 69.85 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "2178fe20-ff11-4ff3-aae2-21aaa37c2c68")
+		)
+		(pin "1"
+			(uuid "0e9b95e8-5cb4-46d8-b34a-87ad879b4d91")
+		)
+		(pin "2"
+			(uuid "b4cba5a5-d830-4175-89d4-fa5c8c9faa55")
+		)
+		(pin "4"
+			(uuid "dffcab97-9fd3-43e4-9e6b-ef2f3068c45e")
+		)
+		(instances
+			(project "projeto"
+				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
+					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "LM2596S-12_1")
+		(lib_id "Regulator_Switching:LM2596S-12")
+		(at 120.65 173.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "55f4062e-ba28-4116-8fb2-f930ed79d86c")
+		(property "Reference" "U7"
+			(at 120.65 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM2596S"
+			(at 120.65 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
+			(at 121.92 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
+			(at 120.65 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "12V 3A Step-Down Voltage Regulator, TO-263"
+			(at 120.65 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "41251f8b-ca9c-46cb-ba14-3ea37668873a")
+		)
+		(pin "1"
+			(uuid "434bb3a2-7965-4e9d-ad62-9a88ad8be5aa")
+		)
+		(pin "2"
+			(uuid "9b59ab78-2185-405d-a2e1-92d73d7842d7")
+		)
+		(pin "4"
+			(uuid "d1c8b006-9133-42b2-b831-28943603b035")
+		)
+		(instances
+			(project "projeto"
+				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
+					(reference "U7")
 					(unit 1)
 				)
 			)
@@ -6664,6 +6543,83 @@
 		)
 	)
 	(symbol
+		(lib_name "LM2596S-12_1")
+		(lib_id "Regulator_Switching:LM2596S-12")
+		(at 120.65 148.59 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "70934773-5e95-4820-b7f2-e1cfb1322155")
+		(property "Reference" "U6"
+			(at 120.65 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM2596S"
+			(at 120.65 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
+			(at 121.92 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
+			(at 120.65 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "12V 3A Step-Down Voltage Regulator, TO-263"
+			(at 120.65 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "c1b29f5d-56a4-4f43-ad83-404c4972713c")
+		)
+		(pin "1"
+			(uuid "d962e068-5a33-4d92-bc46-ba1bea5da1c9")
+		)
+		(pin "2"
+			(uuid "e66eb993-1b66-4b02-9c88-99914db74789")
+		)
+		(pin "4"
+			(uuid "49b1c766-2179-4d9d-af14-e90c74919210")
+		)
+		(instances
+			(project "projeto"
+				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
+					(reference "U6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Simulation_SPICE:0")
 		(at 54.61 121.92 0)
 		(mirror y)
@@ -6733,7 +6689,7 @@
 	)
 	(symbol
 		(lib_id "Simulation_SPICE:0")
-		(at 120.65 184.15 0)
+		(at 107.95 179.07 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6742,7 +6698,7 @@
 		(fields_autoplaced yes)
 		(uuid "71756d76-27e0-446f-98e7-baf6edc316e7")
 		(property "Reference" "#GND012"
-			(at 120.65 189.23 0)
+			(at 107.95 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6751,7 +6707,7 @@
 			)
 		)
 		(property "Value" "0"
-			(at 120.65 181.61 0)
+			(at 107.95 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6760,7 +6716,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 120.65 184.15 0)
+			(at 107.95 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6769,7 +6725,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Circuit_elements__device"
-			(at 120.65 194.31 0)
+			(at 107.95 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6778,7 +6734,7 @@
 			)
 		)
 		(property "Description" "0V reference potential for simulation"
-			(at 120.65 191.77 0)
+			(at 107.95 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7172,164 +7128,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Regulator_Switching:LM2596S-3.3")
-		(at 69.85 148.59 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9aadc19a-1b2e-4c74-b405-9a4ef15613a5")
-		(property "Reference" "U4"
-			(at 69.85 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM2596S-3.3"
-			(at 69.85 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
-			(at 71.12 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
-			(at 69.85 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "3.3V 3A Step-Down Voltage Regulator, TO-263"
-			(at 69.85 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "83d1ca14-ced7-46a5-9984-bb46ec1c9b5a")
-		)
-		(pin "3"
-			(uuid "698c3685-5b68-4792-b41c-cc586cec2bd9")
-		)
-		(pin "1"
-			(uuid "481e047a-5c92-4029-9e72-5e729fb92dc5")
-		)
-		(pin "4"
-			(uuid "b41f8019-b6fb-4e0d-970b-5513b27fecdb")
-		)
-		(pin "5"
-			(uuid "b910968b-c14d-4eaa-bceb-654ac6f0bbdb")
-		)
-		(instances
-			(project "projeto"
-				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
-					(reference "U4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Regulator_Switching:LM2596S-5")
-		(at 120.65 173.99 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9b846871-beab-49a5-8985-acfdad599ef8")
-		(property "Reference" "U7"
-			(at 120.65 163.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM2596S-5"
-			(at 120.65 166.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
-			(at 121.92 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
-			(at 120.65 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "5V 3A Step-Down Voltage Regulator, TO-263"
-			(at 120.65 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "cd285ecf-eec1-4963-8036-e81d8b184781")
-		)
-		(pin "4"
-			(uuid "a03b09ac-14d3-47d0-9f36-49f641544744")
-		)
-		(pin "5"
-			(uuid "58967151-7405-4a43-b4fd-bbcfad9d47ba")
-		)
-		(pin "3"
-			(uuid "ac0f7c7b-60db-4d46-b8ee-4a7571e66a18")
-		)
-		(pin "1"
-			(uuid "3ab58006-0d4e-46e1-bb88-429f0fafaa1b")
-		)
-		(instances
-			(project "projeto"
-				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
-					(reference "U7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Simulation_SPICE:0")
 		(at 213.36 97.79 0)
 		(unit 1)
@@ -7391,85 +7189,6 @@
 			(project "projeto"
 				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
 					(reference "#GND08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Regulator_Switching:LM2596S-5")
-		(at 69.85 173.99 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a4eab623-474c-4997-984b-4c7f29206ce2")
-		(property "Reference" "U5"
-			(at 69.85 163.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM2596S-5"
-			(at 69.85 166.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
-			(at 71.12 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
-			(at 69.85 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "5V 3A Step-Down Voltage Regulator, TO-263"
-			(at 69.85 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "1945e36a-e27d-4b58-80e2-8e1507a140f2")
-		)
-		(pin "4"
-			(uuid "ba7b236e-e5e0-4bea-8787-289bbd831988")
-		)
-		(pin "5"
-			(uuid "7e8203ef-2e1f-47f3-9659-ab3fbdf9755a")
-		)
-		(pin "3"
-			(uuid "c04bf5e4-5799-4416-acf6-cc410dd5436d")
-		)
-		(pin "1"
-			(uuid "67dc7ffc-f268-4976-babb-bc0ebbd6afe8")
-		)
-		(instances
-			(project "projeto"
-				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
-					(reference "U5")
 					(unit 1)
 				)
 			)
@@ -7843,6 +7562,83 @@
 		)
 	)
 	(symbol
+		(lib_name "LM2596S-12_1")
+		(lib_id "Regulator_Switching:LM2596S-12")
+		(at 69.85 148.59 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b834754c-06e6-4153-8c40-9b295891314a")
+		(property "Reference" "U4"
+			(at 69.85 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LM2596S"
+			(at 69.85 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:TO-263-5_TabPin3"
+			(at 71.12 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lm2596.pdf"
+			(at 69.85 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "12V 3A Step-Down Voltage Regulator, TO-263"
+			(at 69.85 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "46371c5a-fd3d-40e5-8cee-ea505d61b853")
+		)
+		(pin "1"
+			(uuid "28928ed4-7274-485a-97b8-8bbb40fa16ca")
+		)
+		(pin "2"
+			(uuid "a8e7c65d-2789-4025-bbac-6e964cdb6fb6")
+		)
+		(pin "4"
+			(uuid "c094c7ef-7c81-4e69-938c-20cef22f34e6")
+		)
+		(instances
+			(project "projeto"
+				(path "/ab632c22-f165-4e6b-a2d7-fa857b6f8249"
+					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 57.15 33.02 0)
 		(unit 1)
@@ -7978,7 +7774,7 @@
 	)
 	(symbol
 		(lib_id "Simulation_SPICE:0")
-		(at 69.85 184.15 0)
+		(at 57.15 179.07 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7987,7 +7783,7 @@
 		(fields_autoplaced yes)
 		(uuid "d965c23c-c3eb-4ec4-a6d2-c2e489de0537")
 		(property "Reference" "#GND011"
-			(at 69.85 189.23 0)
+			(at 57.15 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7996,7 +7792,7 @@
 			)
 		)
 		(property "Value" "0"
-			(at 69.85 181.61 0)
+			(at 57.15 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8005,7 +7801,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 69.85 184.15 0)
+			(at 57.15 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8014,7 +7810,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Circuit_elements__device"
-			(at 69.85 194.31 0)
+			(at 57.15 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8023,7 +7819,7 @@
 			)
 		)
 		(property "Description" "0V reference potential for simulation"
-			(at 69.85 191.77 0)
+			(at 57.15 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
