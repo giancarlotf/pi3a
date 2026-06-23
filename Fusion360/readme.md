@@ -71,7 +71,7 @@ O cérebro do robô é baseado na plataforma Arduino, gerenciando a locomoção 
 *   **Atuadores:** Servo Motor MG996R para controle de fluxo auxiliar.
 
 <div align=center>
-<img src="desenho-tecnico.jpeg">
+<img src="desenho-tecnico.jpg">
 <div align=left>
 
 ---
