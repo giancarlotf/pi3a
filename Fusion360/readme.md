@@ -1,7 +1,10 @@
 # 🚜 Robô Semeador (PI3A - IESB)
 
-![Imagem de Capa do Projeto](URL_DA_SUA_FOTO_AQUI)
+<div align=center>
+<img src="capa.jpeg">
+<p>
 *Protótipo autônomo para semeadura de precisão desenvolvido para a disciplina de Projeto Integrador 3A.*
+<div align=left>
 
 ## 📌 Visão Geral
 O **Robô Semeador** é uma solução de engenharia mecatrônica projetada para automatizar o plantio em pequenas e médias propriedades. O sistema integra locomoção por esteiras, um sulcador de solo de troca rápida e um mecanismo dosador de sementes alveolar de alta precisão.
@@ -17,7 +20,9 @@ O chassi foi projetado para suportar ambientes agrícolas, utilizando uma estrut
 *   **Largura Externa:** 408 mm
 *   **Sistema de Tração:** Lagartas articuladas para baixa compactação do solo e alta aderência.
 
-![Vista Isométrica do Robô](URL_DA_SUA_FOTO_AQUI)
+<div align=center>
+<img src="vista-isometrica.jpeg">
+<div align=left>
 
 ### ⚙️ Design Paramétrico (Fusion 360)
 A modelagem foi realizada de forma 100% paramétrica, permitindo ajustes dinâmicos através da tabela de parâmetros:
@@ -41,14 +46,18 @@ Dividido em dois módulos técnicos fundamentais baseados em **DfAM (Design for 
 *   **Módulo A (Sulcador):** Utiliza um encaixe **Dovetail (Rabo de Andorinha)** de 16mm para permitir a substituição manual da **Botinha Sacrificial**. A botinha possui ângulo de ataque de 25° para otimização do arrasto.
 *   **Módulo B (Braço Flexível):** Um mecanismo compliante em arco parabólico (PETG) que elimina a necessidade de molas metálicas, garantindo suspensão e pressão constante para a **Roda Compactadora (TPU 95A)**.
 
-![Detalhe do Sulcador e Braço Flexível](URL_DA_SUA_FOTO_AQUI)
+<div align=center>
+<img src="sulcador-e-braco.jpeg" width=75%>
+<div align=left>
 
 ### 2. Mecanismo de Semeadura
 O reservatório inclinado conta com um disco alveolar interno para singulação de sementes.
 *   **Dosagem:** Controlada por Motor de Passo para precisão milimétrica.
 *   **Inovação:** Sistema de raspador/escova interno para evitar o entupimento e garantir que apenas uma semente seja liberada por vez.
 
-![Mecanismo Interno do Funil](URL_DA_SUA_FOTO_AQUI)
+<div align=center>
+<img src="funil.jpeg" width=75%>
+<div align=left>
 
 ---
 
@@ -61,7 +70,9 @@ O cérebro do robô é baseado na plataforma Arduino, gerenciando a locomoção 
 *   **Sensores:** Sensor Ultrassônico para desvio automático de obstáculos.
 *   **Atuadores:** Servo Motor MG996R para controle de fluxo auxiliar.
 
-![Esquemático Eletrônico](URL_DA_SUA_FOTO_AQUI)
+<div align=center>
+<img src="desenho-tecnico.jpeg">
+<div align=left>
 
 ---
 
