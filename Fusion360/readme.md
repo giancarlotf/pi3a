@@ -21,7 +21,7 @@ O chassi foi projetado para suportar ambientes agrícolas, utilizando uma estrut
 *   **Sistema de Tração:** Lagartas articuladas para baixa compactação do solo e alta aderência.
 
 <div align=center>
-<img src="vista-isometrica.jpeg">
+<img src="vista-isometrica.jpeg" width=75%>
 <div align=left>
 
 ### ⚙️ Design Paramétrico (Fusion 360)
