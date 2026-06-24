@@ -10,14 +10,14 @@ char *test_mpu()
 {
     char *test_msg = MSG_SUCCESS;
 
-    twi_start();
+    TWI_start();
     if ((TWSR & 0xF8) != 0x08)
     {
         test_msg = "START Failed";
         return test_msg;
     }
 
-    twi_write(MPU6050_ADDR << 1);
+    TWI_write(MPU6050_ADDR << 1);
     if ((TWSR & 0xF8) != 0x18)
     {
         test_msg = "ADDR Not found";
