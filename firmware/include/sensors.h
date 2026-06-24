@@ -19,10 +19,10 @@
 #define PWR_MGMT_1 0x6B
 
 // Configurações do MPU-6050
-#define AFS_SEL 0x18         // +/- 16g
-#define AFS_SENSITIVITY 2048 // BIT Range / Full Scale Range
-#define FS_SEL 0x18          // +/- 2000°/s
-#define FS_SENSITIVITY 16.4f // BIT Range / Full Scale Range
+#define AFS_SEL 0x08           // +/- 4g
+#define AFS_SENSITIVITY 8192.7 // BIT Range / Full Scale Range
+#define FS_SEL 0x18            // +/- 2000°/s
+#define FS_SENSITIVITY 16.4f   // BIT Range / Full Scale Range
 
 // HC-SR04
 int hc_sr04(gpio_t trigger, gpio_t echo);

@@ -7,7 +7,29 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
+// #include <util/delay.h>
+
+// TWI (I2C/IIC)
+extern void TWI_init(void);
+extern void TWI_start(void);
+extern void TWI_write(uint8_t data);
+extern uint8_t TWI_read_ack(void);
+extern void TWI_stop(void);
+
+// USART
+extern void USART_init(uint16_t baud);
+extern void USART_transmit(uint8_t data);
+extern char USART_receive(void);
+extern void USART_flush(void);
+
+// Atraso
+extern void delay_us(uint8_t);
+extern void delay_ms(uint8_t);
+
+// Cronômetro
+extern void time_start(void);
+extern uint8_t time_count(void);
+extern void time_stop(void);
 
 typedef struct
 {
@@ -20,22 +42,6 @@ typedef struct
 #include "actuators.h"
 #include "interfaces.h"
 #include "sensors.h"
-
-// Comentar/Remover antes de compilar
-// #include <avr/iom328p.h>
-
-// TWI (I2C/IIC)
-void twi_init(void);
-void twi_start(void);
-void twi_write(uint8_t data);
-uint8_t twi_read_ack(void);
-uint8_t twi_read_nack(void);
-void twi_stop(void);
-
-// USART
-void usart_init(unsigned long baud);
-void usart_transmit(const char *str);
-char usart_receive(void);
 
 // ESP-01S, módulo do ESP8266
 void esp_01s(void);
