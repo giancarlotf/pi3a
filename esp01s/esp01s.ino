@@ -17,22 +17,27 @@ const char HTML_PAGINA[] PROGMEM = R"***(
 <body>
     <form action="/enviar" method="GET">
         Fileiras [qtd]:<br>
-        <input type=number name=i min=1 required oninput="x_x.required=this.value>1"><br>
+        <input type="number" name="i" min="1" required oninput="document.getElementById('x_x').required = (this.value > 1);"><br>
+        
         Comprimento das fileiras [m]:<br>
-        <input type=number name=y min=0.1 step=0.01 required><br>
+        <input type="number" name="y" min="0.1" step="0.01" required><br>
+        
         Espaçamento entre fileiras [cm]:<br>
-        <input type=number name=x_x min=1><br>
+        <input type="number" name="x_x" id="x_x" min="1"><br>
+        
         Largura máxima do plantio [m]:<br>
-        <input type=number name=x min=0 step=0.01><br>
+        <input type="number" name="x" min="0" step="0.01"><br>
+        
         Espaçamento entre sementes [cm]:<br>
-        <input type=number name=n min=1 required><br>
+        <input type="number" name="n" min="1" required><br>
+        
         Direção:<br>
-        <select name=direcao>
-            <option value=dir>Direita
-            <option value=esq>Esquerda
+        <select name="direcao">
+            <option value="dir">Direita</option>
+            <option value="esq">Esquerda</option>
         </select>
         <br><br>
-        <button value=submit>Iniciar
+        <button type="submit">Iniciar</button>
     </form>
 </body>
 </html>
@@ -64,8 +69,7 @@ void handleFormulario()
   Serial.print(",");
   Serial.print(esp_sementes);
   Serial.print(",");
-  Serial.print(direcao);
-  Serial.print("\n");
+  Serial.println(direcao); 
 
   // Responde no Display
   Serial.println("MSG:Iniciando...");
