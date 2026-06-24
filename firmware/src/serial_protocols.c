@@ -1,3 +1,5 @@
+#include <avr/io.h>
+
 // TWI (I2C/IIC)
 void twi_init(void) // TWBR
 {
