@@ -4,110 +4,129 @@
 #include <avr/io.h>
 
 ; TWI (I2C/IIC)
-.global TWI_Init
-.global TWI_Start
-.global TWI_Write
-.global TWI_Read
-.global TWI_Stop
+.global TWI_init
+.global TWI_start
+.global TWI_write
+.global TWI_read_ack
+.global TWI_read_nack
+.global TWI_stop
 
 ; USART
-.global USART_Init
-.global USART_Transmit
-.global USART_Receive
-.global USART_Flush
+.global USART_init
+.global USART_transmit
+.global USART_receive
+.global USART_flush
 
 ; TWI (I2C/IIC)
-TWI_Init:
+TWI_init:
     ldi r16, 0x00
-    out TWSR, r16
+    sts TWSR, r16
     ldi r16, 0x48
-    out TWBR, r16
+    sts TWBR, r16
     ldi r16, (1<<TWEN)
-    out TWCR, r16
+    sts TWCR, r16
     ret
 
-TWI_Start:
-    ; Send START condition
+TWI_start:
+    ; Envia a condição de START
     ldi r16, (1<<TWINT) | (1<<TWSTA) | (1<<TWEN)
-    out TWCR, r16
+    sts TWCR, r16
 
 wait1:
-    ; Wait for TWINT flag set
-    ; This indicates that the START condition has been transmitted
-    in r16,TWCR
-    sbrs r16,TWINT
+    ; Espera pela flag TWINT ser definida.
+    ; Isso indica que a condição de START foi transmitida
+    lds r16, TWCR
+    sbrs r16, TWINT
     rjmp wait1
     ret
 
-TWI_Write:
-    ; Load SLA_W into TWDR register
-    ; Clear TWINT bit in TWCR to start transmission of address
-    ; ldi r16, SLA_W
-    out TWDR, r24
+TWI_write:
+    ; Carrega SLA_W dentro do registrador TWDR
+    ; Limpa o bit TWINT no TWCR para começar a transmissão do endereço
+    sts TWDR, r24
     ldi r24, (1<<TWINT) | (1<<TWEN)
-    out TWCR, r24
+    sts TWCR, r24
 
 wait2:
-    ; Wait for TWINT flag set
-    ; This indicates that the SLA+W has been transmitted, and ACK/NACK has been received
-    in r24, TWCR
+    ; Espera pela flag TWINT ser definida.
+    ; Isso indica que SLA+W foi transmitido e ACK/NACK foi recebido
+    lds r24, TWCR
     sbrs r24, TWINT
     rjmp wait2
     ret
 
-TWI_Read:
-    ; Load DATA into TWDR register
-    ; Clear TWINT bit in TWCR to start transmission of data
-    ldi r16, DATA
-    out TWDR, r16
-    ldi r16, (1<<TWINT) | (1<<TWEN)
-    out TWCR, r16
+TWI_read_ack:
+    ; Carrega DATA dentro do registrador TWDR
+    ; Limpa o bit TWINT no TWCR para começar a transmissão de dados
+    ldi r16, (1<<TWINT) | (1<<TWEN) | (1<<TWEA)
+    sts TWCR, r16
 
 wait3:
-    ; Wait for TWINT flag set.
-    ; This indicates that the DATA has been transmitted, and ACK/NACK has been received
-    in r16, TWCR
+    ; Espera pela flag TWINT ser definida.
+    ; Isso indica que DATA foi transmitido e ACK/NACK foi recebido
+    lds r16, TWCR
     sbrs r16, TWINT
     rjmp wait3
+
+    lds r24, TWDR
     ret
 
-TWI_Stop:
-    ; Transmit STOP condition
-    ldi r16, (1<<TWINT) | (1<<TWEN) | (1<<TWSTO)
-    out TWCR, r16 
+TWI_read_nack:
+    ; Carrega DATA dentro do registrador TWDR
+    ; Limpa o bit TWINT no TWCR para começar a transmissão de dados
+    ldi r16, (1<<TWINT) | (1<<TWEN)
+    sts TWCR, r16
+
+wait4:
+    ; Espera pela flag TWINT ser definida.
+    ; Isso indica que DATA foi transmitido e ACK/NACK foi recebido
+    lds r16, TWCR
+    sbrs r16, TWINT
+    rjmp wait4
+
+    lds r24, TWDR
+    ret
+
+TWI_stop:
+    ; Transmite a condição de STOP
+    ldi r16, (1<<TWINT) | (1<<TWSTO) | (1<<TWEN)
+    sts TWCR, r16 
     ret
 
 ; USART
-USART_Init:
+USART_init:
     ; Define taxa de transmissão
-    out UBRR0H, r25
-    out UBRR0L, r24
+    sts UBRR0H, r25
+    sts UBRR0L, r24
     ; Habilita receptor e transmissor
     ldi r16, (1<<RXEN0) | (1<<TXEN0)
-    out UCSR0B, r16
+    sts UCSR0B, r16
     ; Define o formato de quadro: 8data, 2stop bitbaud rate
-    ldi r16, (1<<USBS0) | (3<<UCSZ00)
-    out UCSR0C, r16
+    ldi r16, (1 << UCSZ01) | (1 << UCSZ00)
+    sts UCSR0C, r16
     ret
 
-USART_Transmit:
+USART_transmit:
     ; Aguarda por um buffer de transmissão vazio
-    sbis UCSR0A, UDRE0
-    rjmp USART_Transmit
+    lds r16, UCSR0A
+    sbrs r16, UDRE0
+    rjmp USART_transmit
     ; Coloca os dados (r24) no buffer e envia os dados
-    out UDR0, r24
+    sts UDR0, r24
     ret
 
-USART_Receive:
+USART_receive:
     ; Aguarda pelos dados a serem recebidos
-    sbis UCSR0A, RXC0
-    rjmp USART_Receive
+    lds r16, UCSR0A
+    sbrs r16, RXC0
+    rjmp USART_receive
     ; Pega e retorna os dados recebidos do buffer
-    in r24, UDR0
+    lds r24, UDR0
     ret
 
-USART_Flush:
-    sbis UCSR0A, RXC0
+USART_flush:
+    lds r16, UCSR0A
+    sbrs r16, RXC0
     ret
-    in r16, UDR0
-    rjmp USART_Flush
+    lds r16, UDR0
+    rjmp USART_flush

@@ -5,19 +5,19 @@
 // Utilizado para a comunicação TWI (I2C/IIC) com o Display LCD 1602A
 void lcd_write(uint8_t data)
 {
-    twi_start();
-    twi_write(LCD_ADDR << 1);
-    twi_write(data);
-    twi_stop();
+    TWI_start();
+    TWI_write(LCD_ADDR << 1);
+    TWI_write(data);
+    TWI_stop();
 }
 
 void lcd_pulse(uint8_t data)
 {
     lcd_write(data | (1 << LCD_E));
-    _delay_us(1);
+    delay_us(1);
 
     lcd_write(data & ~(1 << LCD_E)); // Escrita realizada na descida do sinal
-    _delay_us(50);
+    delay_us(50);
 }
 
 void lcd_send_nibble(uint8_t nibble, uint8_t rs)
@@ -39,12 +39,12 @@ void lcd_send_byte(uint8_t byte, uint8_t rs)
 
 void lcd_init(void)
 {
-    _delay_ms(20);
+    delay_ms(20);
 
     lcd_send_nibble(0x03, 0); // DL: 8 bit
-    _delay_ms(5);
+    delay_ms(5);
     lcd_send_nibble(0x03, 0); // DL: 8 bit
-    _delay_us(100);
+    delay_us(100);
     lcd_send_nibble(0x03, 0); // DL: 8 bit
 
     lcd_send_nibble(0x02, 0); // DL: 4 bit
@@ -54,7 +54,7 @@ void lcd_init(void)
     lcd_send_byte(0x06, 0); // Define cursor
     lcd_send_byte(0x01, 0); // Clear
 
-    _delay_ms(2);
+    delay_ms(2);
 }
 
 void lcd_set_cursor(uint8_t row, uint8_t col)

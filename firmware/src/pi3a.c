@@ -21,27 +21,27 @@ char *test_mpu()
     if ((TWSR & 0xF8) != 0x18)
     {
         test_msg = "ADDR Not found";
-        twi_stop();
+        TWI_stop();
         return test_msg;
     }
 
-    twi_write(PWR_MGMT_1);
+    TWI_write(PWR_MGMT_1);
     if ((TWSR & 0xF8) != 0x28)
     {
         test_msg = "REG Not found";
-        twi_stop();
+        TWI_stop();
         return test_msg;
     }
 
-    twi_write(0);
+    TWI_write(0);
     if ((TWSR & 0xF8) != 0x28)
     {
         test_msg = "Can't write DATA";
-        twi_stop();
+        TWI_stop();
         return test_msg;
     }
 
-    twi_stop();
+    TWI_stop();
     return test_msg;
 }
 
@@ -54,18 +54,22 @@ typedef struct
     float largura_max;
     uint8_t lado;   // 1 = dir, 2 = esq
     uint8_t enable; // Flag de controle
-} configuracao_t;
+} config_t;
 
-configuracao_t robo_cfg = {0};
+config_t robot_cfg = {0};
 
-void serial_esp(void)
+void serial_esp_01s(void)
 {
     static char buffer_rx[64];
     static uint8_t idx = 0;
+    char c;
+
+    lcd_set_cursor(0, 0);
+    lcd_print("Waiting AP...");
 
     while (UCSR0A & (1 << RXC0))
     {
-        char c = UDR0;
+        c = USART_receive();
 
         if (c == '\n')
         {
@@ -89,17 +93,17 @@ void serial_esp(void)
             else
             {
                 char dir_str[5];
-                int parseados = sscanf(buffer_rx, "%d,%f,%d,%f,%s",
-                                       &robo_cfg.fileiras,
-                                       &robo_cfg.comprimento,
-                                       &robo_cfg.esp_fileiras,
-                                       &robo_cfg.largura_max,
-                                       dir_str);
+                int parsed = sscanf(buffer_rx, "%d,%f,%d,%f,%s",
+                                    &robot_cfg.fileiras,
+                                    &robot_cfg.comprimento,
+                                    &robot_cfg.esp_fileiras,
+                                    &robot_cfg.largura_max,
+                                    dir_str);
 
-                if (parseados >= 4) // Número mínimo de dados
+                if (parsed >= 4) // Número mínimo de dados
                 {
-                    robo_cfg.lado = (strcmp(dir_str, "dir") == 0) ? 1 : 2;
-                    robo_cfg.enable = 1;
+                    robot_cfg.lado = (strcmp(dir_str, "dir") == 0) ? 1 : 2;
+                    robot_cfg.enable = 1;
                 }
             }
         }
@@ -108,32 +112,34 @@ void serial_esp(void)
             buffer_rx[idx++] = c;
         }
     }
+
+    return;
 }
 
 void controle(float *x_traveled, float *y_traveled, float *x_velocity, float *y_velocity)
 {
-    if (robo_cfg.fileiras > 0 || *x_traveled <= robo_cfg.largura_max)
+    if (robot_cfg.fileiras > 0 || *x_traveled <= robot_cfg.largura_max)
     {
         *x_traveled += distance(ACCEL_XOUT_H, *x_velocity);
         *y_traveled += distance(ACCEL_YOUT_H, *y_velocity);
 
-        if (robo_cfg.comprimento - *y_traveled < 0.10)
+        if (robot_cfg.comprimento - *y_traveled < 0.10)
         {
             // Falta implementar: para();
-            if (robo_cfg.largura_max && *x_traveled < robo_cfg.largura_max)
+            if (robot_cfg.largura_max && *x_traveled < robot_cfg.largura_max)
             {
-                // Falta implementar: vira(robo_cfg.lado, robo_cfg.esp_fileiras);
+                // Falta implementar: vira(robot_cfg.lado, robot_cfg.esp_fileiras);
             }
 
             *y_traveled = 0;
             *x_velocity = 0;
             *y_velocity = 0;
-            robo_cfg.fileiras--;
+            robot_cfg.fileiras--;
         }
     }
     else
     {
-        robo_cfg.enable = 0;
+        robot_cfg.enable = 0;
     }
 }
 
@@ -164,50 +170,66 @@ int main(void)
     float x_velocity = 0;
     float y_velocity = 0;
 
-    usart_init(9600);
-    twi_init();
-    _delay_ms(100);
+    USART_init(9600);
+    TWI_init();
+    delay_ms(100);
 
     mpu6050_init();
-    _delay_us(200);
+    delay_ms(200);
+    for (int i = 0; i < 12; i++)
+    {
+        delay_ms(250);
+    }
 
     char *test_msg = test_mpu();
 
     lcd_init();
-    _delay_ms(10);
+    for (int i = 0; i < 12; i++)
+    {
+        delay_ms(250);
+    }
+    delay_ms(10);
 
     lcd_set_cursor(0, 0);
     lcd_print(test_msg);
+
     if (strcmp(test_msg, MSG_SUCCESS) == 0)
     {
         lcd_set_cursor(1, 0);
         lcd_print(&test_msg[16]);
     }
-    _delay_ms(3000);
+
+    for (int i = 0; i < 12; i++)
+    {
+        delay_ms(250);
+    }
+
     lcd_set_cursor(0, 0);
+    lcd_print("                ");
+    lcd_set_cursor(1, 0);
     lcd_print("                ");
 
     while (1)
     {
-        // if (!robo_cfg.enable)
+        if (!robot_cfg.enable)
         {
-            // checar_serial_esp();
+            serial_esp_01s();
         }
-        // else
+        else
         {
             // controle(&x_traveled, &y_traveled, &x_velocity, &y_velocity);
             mpu6050_read_all(&ax, &ay, &az, &gx, &gy, &gz);
-            _delay_ms(10);
+            delay_ms(10);
             char accel_str[50];
-            sprintf(accel_str, "%d %d", (int)ax, (int)ay);
+            sprintf(accel_str, "%d %d", ax, ay);
 
             lcd_set_cursor(1, 0);
             lcd_print(accel_str);
             lcd_print("                ");
-            _delay_ms(10);
+            delay_ms(10);
 
             int dist = hc_sr04(trig, echo);
-            _delay_ms(10);
+            delay_ms(10);
 
             if (dist <= 30)
             {
